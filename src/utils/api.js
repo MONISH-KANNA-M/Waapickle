@@ -94,6 +94,49 @@ const api = {
       };
     }
 
+    if (url === '/admin/analytics') {
+      return {
+        data: {
+          salesData: [
+            { date: 'Jan', sales: 4000 },
+            { date: 'Feb', sales: 3000 },
+            { date: 'Mar', sales: 5000 },
+            { date: 'Apr', sales: 4500 },
+            { date: 'May', sales: 6000 },
+            { date: 'Jun', sales: 5500 },
+            { date: 'Jul', sales: 7000 },
+            { date: 'Aug', sales: 6500 },
+            { date: 'Sep', sales: 8000 },
+            { date: 'Oct', sales: 7500 },
+            { date: 'Nov', sales: 9000 },
+            { date: 'Dec', sales: 8500 }
+          ],
+          customerGrowth: [
+            { month: 'Jan', customers: 120 },
+            { month: 'Feb', customers: 135 },
+            { month: 'Mar', customers: 158 },
+            { month: 'Apr', customers: 172 },
+            { month: 'May', customers: 195 },
+            { month: 'Jun', customers: 210 }
+          ],
+          productPerformance: [
+            { name: 'Classic Dill Pickles', sales: 2400, revenue: 31200 },
+            { name: 'Sweet Pickle Relish', sales: 1800, revenue: 16200 },
+            { name: 'Spicy Jalapeño Pickles', sales: 1600, revenue: 25600 },
+            { name: 'Kosher Dill Spears', sales: 1200, revenue: 14400 },
+            { name: 'Bread & Butter Pickles', sales: 1000, revenue: 12000 }
+          ],
+          categoryDistribution: [
+            { name: 'Dill Pickles', value: 35 },
+            { name: 'Sweet Pickles', value: 25 },
+            { name: 'Spicy Pickles', value: 20 },
+            { name: 'Kosher Pickles', value: 15 },
+            { name: 'Specialty', value: 5 }
+          ]
+        }
+      };
+    }
+
     // Default response
     return { data: {} };
   },

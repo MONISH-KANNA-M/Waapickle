@@ -25,7 +25,7 @@ const OrdersPage = () => {
         {
           _id: '1',
           orderId: 'ORD-001',
-          customer: { name: 'Alice Johnson', email: 'alice@example.com' },
+          customer: { name: 'Alice Johnson', email: 'alice@example.com', location: 'Chennai, Tamil Nadu' },
           total: 45.99,
           status: 'delivered',
           createdAt: new Date().toISOString(),
@@ -34,7 +34,7 @@ const OrdersPage = () => {
         {
           _id: '2',
           orderId: 'ORD-002',
-          customer: { name: 'Bob Smith', email: 'bob@example.com' },
+          customer: { name: 'Bob Smith', email: 'bob@example.com', location: 'Bangalore, Karnataka' },
           total: 32.50,
           status: 'shipped',
           createdAt: new Date(Date.now() - 86400000).toISOString(),
@@ -43,11 +43,29 @@ const OrdersPage = () => {
         {
           _id: '3',
           orderId: 'ORD-003',
-          customer: { name: 'Carol Davis', email: 'carol@example.com' },
+          customer: { name: 'Carol Davis', email: 'carol@example.com', location: 'Mumbai, Maharashtra' },
           total: 67.25,
           status: 'processing',
           createdAt: new Date(Date.now() - 172800000).toISOString(),
           items: [{ name: 'Spicy Jalapeño Pickles', quantity: 3, price: 15.99 }]
+        },
+        {
+          _id: '4',
+          orderId: 'ORD-004',
+          customer: { name: 'David Wilson', email: 'david@example.com', location: 'Coimbatore, Tamil Nadu' },
+          total: 89.99,
+          status: 'pending',
+          createdAt: new Date(Date.now() - 259200000).toISOString(),
+          items: [{ name: 'Garlic Pickle', quantity: 2, price: 27.99 }]
+        },
+        {
+          _id: '5',
+          orderId: 'ORD-005',
+          customer: { name: 'Eva Brown', email: 'eva@example.com', location: 'Delhi, NCR' },
+          total: 156.75,
+          status: 'processing',
+          createdAt: new Date(Date.now() - 345600000).toISOString(),
+          items: [{ name: 'Mixed Vegetable Pickle', quantity: 3, price: 28.99 }]
         }
       ];
       setOrders(mockOrders);
@@ -82,6 +100,46 @@ const OrdersPage = () => {
       case 'cancelled': return 'bg-red-100 text-red-800';
       default: return 'bg-gray-100 text-gray-800';
     }
+  };
+
+  // Function to calculate delivery days based on location
+  const getDeliveryDays = (customerLocation) => {
+    if (!customerLocation) return "3-5 days";
+    
+    const location = customerLocation.toLowerCase();
+    
+    // Tamil Nadu locations
+    if (location.includes('tamil nadu') || location.includes('chennai') || 
+        location.includes('coimbatore') || location.includes('madurai') ||
+        location.includes('salem') || location.includes('trichy') ||
+        location.includes('vellore') || location.includes('erode')) {
+      return "1-2 days";
+    }
+    
+    // Neighboring states
+    if (location.includes('karnataka') || location.includes('bangalore') ||
+        location.includes('kerala') || location.includes('andhra pradesh') ||
+        location.includes('telangana') || location.includes('hyderabad')) {
+      return "2-3 days";
+    }
+    
+    // North India
+    if (location.includes('delhi') || location.includes('mumbai') ||
+        location.includes('pune') || location.includes('ahmedabad') ||
+        location.includes('kolkata') || location.includes('lucknow')) {
+      return "4-5 days";
+    }
+    
+    // Rest of India
+    return "5-7 days";
+  };
+
+  // Function to get delivery status color
+  const getDeliveryStatusColor = (days) => {
+    if (days.includes('1-2')) return 'bg-green-100 text-green-800';
+    if (days.includes('2-3')) return 'bg-blue-100 text-blue-800';
+    if (days.includes('4-5')) return 'bg-yellow-100 text-yellow-800';
+    return 'bg-orange-100 text-orange-800';
   };
 
   if (loading) {
@@ -130,6 +188,9 @@ const OrdersPage = () => {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
                 </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Delivery
+                </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Actions
                 </th>
@@ -157,6 +218,16 @@ const OrdersPage = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {formatDate(order.createdAt)}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="space-y-1">
+                      <div className="text-sm text-gray-900 font-medium">
+                        {order.customer.location || 'Location not specified'}
+                      </div>
+                      <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getDeliveryStatusColor(getDeliveryDays(order.customer.location))}`}>
+                        {getDeliveryDays(order.customer.location)}
+                      </span>
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex items-center justify-end space-x-2">
@@ -220,6 +291,12 @@ const OrdersPage = () => {
                   {selectedOrder.customer.phone && (
                     <p><strong>Phone:</strong> {selectedOrder.customer.phone}</p>
                   )}
+                  <p><strong>Location:</strong> {selectedOrder.customer.location || 'Not specified'}</p>
+                  <p><strong>Estimated Delivery:</strong> 
+                    <span className={`ml-2 inline-flex px-2 py-1 text-xs font-medium rounded-full ${getDeliveryStatusColor(getDeliveryDays(selectedOrder.customer.location))}`}>
+                      {getDeliveryDays(selectedOrder.customer.location)}
+                    </span>
+                  </p>
                 </div>
               </div>
 

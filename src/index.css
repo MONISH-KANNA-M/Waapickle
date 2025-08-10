@@ -167,6 +167,7 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 250, 247, 0.9) 100%);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(164, 123, 104, 0.1);
+    animation: float 6s ease-in-out infinite;
   }
 
   .card::before {
@@ -188,6 +189,32 @@
     @apply scale-110;
     box-shadow: var(--shadow-strong);
     transform: translateY(-12px) scale(1.05);
+    animation: none;
+  }
+
+  /* Floating Card Variations */
+  .card-float-1 {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .card-float-2 {
+    animation: float 6s ease-in-out infinite 1s;
+  }
+
+  .card-float-3 {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .card-float-4 {
+    animation: float 6s ease-in-out infinite 3s;
+  }
+
+  .card-float-5 {
+    animation: float 6s ease-in-out infinite 4s;
+  }
+
+  .card-float-6 {
+    animation: float 6s ease-in-out infinite 5s;
   }
 
   /* Product Card Enhancement */

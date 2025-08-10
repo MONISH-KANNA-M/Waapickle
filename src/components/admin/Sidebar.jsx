@@ -13,6 +13,7 @@ import {
   FiGift,
   FiSettings,
   FiBarChart2,
+  FiUsers,
 } from "react-icons/fi";
 import { useAuth } from "../../context/AuthContext";
 
@@ -27,7 +28,10 @@ const Sidebar = () => {
     { path: "/admin/products", icon: FiPackage, label: "Products" },
     { path: "/admin/add-product", icon: FiPlus, label: "Add Product" },
     { path: "/admin/orders", icon: FiShoppingBag, label: "Orders" },
+    { path: "/admin/analytics", icon: FiBarChart2, label: "Analytics" },
     { path: "/admin/feedback", icon: FiMessageSquare, label: "Feedback" },
+    { path: "/admin/crm", icon: FiUser, label: "CRM" },
+
     { path: "/admin/coupons", icon: FiGift, label: "Coupons" },
   ];
 
@@ -62,9 +66,8 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-light shadow-2xl z-40 transform transition-all duration-300 ease-in-out lg:translate-x-0 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full w-64 bg-light shadow-2xl z-40 transform transition-all duration-300 ease-in-out lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
@@ -92,18 +95,16 @@ const Sidebar = () => {
                     <Link
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`group flex items-center px-4 py-3 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 ${
-                        isActive
+                      className={`group flex items-center px-4 py-3 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 ${isActive
                           ? "bg-primary text-white shadow-lg"
                           : "text-gray-700 hover:bg-gray-100 hover:text-primary"
-                      }`}
+                        }`}
                     >
                       <Icon
-                        className={`w-5 h-5 mr-3 transition-transform duration-200 group-hover:scale-110 ${
-                          isActive
+                        className={`w-5 h-5 mr-3 transition-transform duration-200 group-hover:scale-110 ${isActive
                             ? "text-white"
                             : "text-gray-500 group-hover:text-primary"
-                        }`}
+                          }`}
                       />
                       <span className="font-medium">{item.label}</span>
                       {isActive && (

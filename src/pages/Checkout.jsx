@@ -155,7 +155,7 @@ const Checkout = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Checkout Form */}
-          <div className="bg-light rounded-xl shadow-md p-8">
+          <div className="bg-light rounded-xl shadow-md p-8 card-float-1">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Billing Details */}
               <div>
@@ -390,7 +390,7 @@ const Checkout = () => {
           </div>
 
           {/* Order Summary */}
-          <div className="bg-light rounded-xl shadow-md p-8 h-fit sticky top-24">
+          <div className="bg-light rounded-xl shadow-md p-8 h-fit sticky top-24 card-float-2">
             <h2 className="font-heading text-xl font-semibold text-dark mb-6">
               Order Summary
             </h2>

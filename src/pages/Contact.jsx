@@ -64,7 +64,7 @@ const Contact = () => {
 
             {/* Contact Cards */}
             <div className="space-y-6">
-              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 card-float-1">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <FiMail className="w-6 h-6 text-primary" />
@@ -84,7 +84,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 card-float-2">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                     <FaWhatsapp className="w-6 h-6 text-green-600" />
@@ -106,7 +106,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 card-float-3">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                     <FiPhone className="w-6 h-6 text-blue-600" />
@@ -126,7 +126,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+              <div className="bg-light p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 card-float-4">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
                     <FiMapPin className="w-6 h-6 text-accent" />

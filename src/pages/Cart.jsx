@@ -72,8 +72,8 @@ const Cart = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
-            {items.map((item) => (
-              <div key={item.id} className="bg-light rounded-xl shadow-md p-6">
+            {items.map((item, index) => (
+              <div key={item.id} className={`bg-light rounded-xl shadow-md p-6 card-float-${(index % 6) + 1}`}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <img
                     src={item.image}
@@ -160,7 +160,7 @@ const Cart = () => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-light rounded-xl shadow-md p-6 sticky top-24">
+            <div className="bg-light rounded-xl shadow-md p-6 sticky top-24 card-float-1">
               <h2 className="font-heading text-xl font-semibold text-dark mb-6">
                 Order Summary
               </h2>

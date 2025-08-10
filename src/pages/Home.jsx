@@ -91,7 +91,6 @@ const Home = () => {
     <div className="min-h-screen font-sans bg-bg">
       {/* Hero Section with Enhanced Carousel */}
       <section className="relative bg-gradient-to-br from-primary/10 to-accent/10 py-20 overflow-hidden">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="slide-in-left">
@@ -141,8 +140,8 @@ const Home = () => {
                       key={index}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === carouselIndex
-                          ? 'bg-white scale-125'
-                          : 'bg-white/50 hover:bg-white/75'
+                          ? "bg-white scale-125"
+                          : "bg-white/50 hover:bg-white/75"
                       }`}
                     />
                   ))}
@@ -172,7 +171,9 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group text-center p-8 glass rounded-2xl hover-lift hover-glow transition-all duration-500 bounce-in"
+                className={`group text-center p-8 glass rounded-2xl hover-lift hover-glow transition-all duration-500 bounce-in card-float-${
+                  index + 1
+                }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 text-light group-hover:rotate-slow transition-all duration-300 hover-bounce">
@@ -195,7 +196,6 @@ const Home = () => {
 
       {/* Enhanced Bestsellers Section */}
       <section className="py-20 bg-bg relative overflow-hidden">
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6">
@@ -203,7 +203,8 @@ const Home = () => {
             </h2>
             <p className="font-body text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover our most loved pickles, crafted with traditional recipes
-              and premium ingredients that have delighted families for generations
+              and premium ingredients that have delighted families for
+              generations
             </p>
 
             {/* Decorative line */}
@@ -214,7 +215,7 @@ const Home = () => {
             {bestsellers.map((product, index) => (
               <div
                 key={product.id}
-                className="zoom-in"
+                className={`zoom-in card-float-${index + 1}`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <ProductCard product={product} />
@@ -246,11 +247,13 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {categories.slice(1).map((category) => (
+            {categories.slice(1).map((category, index) => (
               <Link
                 key={category.value}
                 to={`/pickles?category=${category.value}`}
-                className="group bg-white rounded-xl shadow-md hover:shadow-2xl hover:scale-105 hover:-translate-y-2 hover:bg-primary/10 transition-all duration-300 overflow-hidden float-animation"
+                className={`group bg-white rounded-xl shadow-md hover:shadow-2xl hover:scale-105 hover:-translate-y-2 hover:bg-primary/10 transition-all duration-300 overflow-hidden card-float-${
+                  index + 1
+                }`}
               >
                 <div className="h-32 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                   <span className="font-heading text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-200 animate-pulse">
@@ -280,10 +283,12 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="bg-light p-8 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 float-animation"
+                className={`bg-light p-8 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 card-float-${
+                  index + 1
+                }`}
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (

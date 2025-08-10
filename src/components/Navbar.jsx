@@ -10,6 +10,7 @@ import {
   FiPackage,
   FiTruck,
   FiCheckCircle,
+  FiSettings,
 } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
@@ -19,7 +20,7 @@ const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const { getItemCount } = useCart();
   const navigate = useNavigate();
 
@@ -49,6 +50,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Pickles", path: "/pickles" },
     { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -200,12 +202,7 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-                <Link
-                  to="/admin-login"
-                  className="font-body text-dark hover:text-primary transition-colors duration-200"
-                >
-                  Admin
-                </Link>
+               
                 <Link
                   to="/signup"
                   className="bg-primary text-light px-4 py-2 rounded-lg font-body hover:bg-hover transition-colors duration-200"
@@ -240,6 +237,18 @@ const Navbar = () => {
                 </Link>
               ))}
 
+              {/* Admin Dashboard Link in Mobile Menu */}
+              {isAuthenticated && isAdmin && (
+                <Link
+                  to="/admin/dashboard"
+                  className="block px-3 py-2 font-body text-primary hover:bg-bg transition-colors duration-200 flex items-center space-x-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <FiSettings size={16} />
+                  <span>Admin Dashboard</span>
+                </Link>
+              )}
+
               {!isAuthenticated && (
                 <div className="pt-4 border-t border-accent/20">
                   <Link
@@ -249,13 +258,7 @@ const Navbar = () => {
                   >
                     Login
                   </Link>
-                  <Link
-                    to="/admin-login"
-                    className="block px-3 py-2 font-body text-dark hover:bg-bg transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Admin Login
-                  </Link>
+                 
                   <Link
                     to="/signup"
                     className="block px-3 py-2 font-body text-dark hover:bg-bg transition-colors duration-200"

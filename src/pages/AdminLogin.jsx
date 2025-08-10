@@ -69,7 +69,7 @@ const AdminLogin = () => {
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
-        <div className="bg-light rounded-2xl shadow-xl p-8">
+        <div className="bg-light rounded-2xl shadow-xl p-8 card-float-1">
           {/* Header */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center space-x-2 mb-6">

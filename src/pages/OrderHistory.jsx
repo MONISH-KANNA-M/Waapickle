@@ -180,8 +180,8 @@ const OrderHistory = () => {
           </div>
         ) : (
           <div className="space-y-6">
-            {orders.map((order) => (
-              <div key={order.id} className="bg-light rounded-xl shadow-md overflow-hidden">
+            {orders.map((order, index) => (
+              <div key={order.id} className={`bg-light rounded-xl shadow-md overflow-hidden card-float-${(index % 6) + 1}`}>
                 <div className="p-6">
                   {/* Order Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">

@@ -78,7 +78,7 @@ const Profile = () => {
           <p className="font-body text-gray-600">Manage your account information</p>
         </div>
 
-        <div className="bg-light rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-light rounded-2xl shadow-lg overflow-hidden card-float-1">
           {/* Profile Header */}
           <div className="bg-gradient-to-r from-primary to-accent p-8">
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">

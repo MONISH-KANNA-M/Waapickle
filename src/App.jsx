@@ -28,7 +28,9 @@ import DashboardPage from "./pages/admin/DashboardPage";
 import ProductsAdminPage from "./pages/admin/ProductsAdminPage";
 import AddProductPage from "./pages/admin/AddProductPage";
 import OrdersPage from "./pages/admin/OrdersPage";
+import AnalyticsPage from "./pages/admin/AnalyticsPage";
 import FeedbackPage from "./pages/admin/FeedbackPage";
+import CRMPage from "./pages/admin/CRMPage";
 import CouponManagementPage from "./pages/admin/CouponManagementPage";
 import ProductViewPage from "./pages/admin/ProductViewPage";
 import ProfilePage from "./pages/admin/ProfilePage";
@@ -205,10 +207,24 @@ const App = () => {
                     </AdminLayout>
                   </ProtectedRoute>
                 } />
+                <Route path="/admin/analytics" element={
+                  <ProtectedRoute adminOnly>
+                    <AdminLayout>
+                      <AnalyticsPage />
+                    </AdminLayout>
+                  </ProtectedRoute>
+                } />
                 <Route path="/admin/feedback" element={
                   <ProtectedRoute adminOnly>
                     <AdminLayout>
                       <FeedbackPage />
+                    </AdminLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/crm" element={
+                  <ProtectedRoute adminOnly>
+                    <AdminLayout>
+                      <CRMPage />
                     </AdminLayout>
                   </ProtectedRoute>
                 } />

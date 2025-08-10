@@ -191,7 +191,7 @@ const Pickles = () => {
             {filteredAndSortedProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="zoom-in"
+                className={`zoom-in card-float-${(index % 6) + 1}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <ProductCard product={product} />
