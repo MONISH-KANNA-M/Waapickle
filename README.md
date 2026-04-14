@@ -1,7 +1,14 @@
+
+```markdown
 # 🥒 Waapickle – Online Pickle Store
 
+## 📌 Live Demo
+🔗 https://waapickle.vercel.app/
+
+---
+
 ## 📌 Overview
-Waapickel is an online platform for selling homemade and traditional pickles. It allows users to explore different varieties of pickles, place orders, and enjoy authentic flavors delivered to their doorstep.
+Waapickle is an online platform for selling homemade and traditional pickles. It allows users to explore different varieties, place orders, and enjoy authentic flavors delivered to their doorstep.
 
 ---
 
@@ -34,7 +41,7 @@ Waapickel/
 │── requirements.txt
 │── README.md
 
-````id="2g5cv7"
+````
 
 ---
 
@@ -47,19 +54,19 @@ git clone https://github.com/your-username/Waapickel.git
 
 2. Navigate to the folder:
 
-```bash id="8n8fdv"
+```bash
 cd Waapickel
 ```
 
 3. Install dependencies:
 
-```bash id="if1xmb"
+```bash
 pip install -r requirements.txt
 ```
 
 or
 
-```bash id="ruo4ai"
+```bash
 npm install
 ```
 
@@ -71,25 +78,25 @@ Run the application:
 
 For Python:
 
-```bash id="5f6yqz"
+```bash
 python app.py
 ```
 
 For Node.js:
 
-```bash id="9xb07f"
+```bash
 npm start
 ```
 
 Open in browser:
 
-```id="c8n6v2"
+```
 http://127.0.0.1:5000
 ```
 
 or
 
-```id="d7k3dp"
+```
 http://localhost:3000
 ```
 
@@ -114,3 +121,16 @@ http://localhost:3000
 * 🎯 Personalized recommendations
 
 ---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Your Name
+GitHub: [https://github.com/your-username](https://github.com/your-username)
+
+```
